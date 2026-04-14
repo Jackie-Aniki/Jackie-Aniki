@@ -1,6 +1,4 @@
-# Jacek Goblin
-
-## 👾 Indie Game Developer
+# 👾 Indie Game Developer
 
 Building small engines, game dev tools for the web.
 
