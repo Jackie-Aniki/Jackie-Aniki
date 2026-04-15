@@ -1,0 +1,49 @@
+name: check2d-benchmarks
+
+on:
+  # Manual run
+  workflow_dispatch:
+  # Automatic run on push
+  push:
+    branches: [master]
+    paths:
+      - 'src/**'
+      - '.github/workflows/benchmarks.yml'
+
+  # Automatic run on pull request
+  pull_request:
+    branches: [master]
+    paths:
+      - 'src/**'
+      - '.github/workflows/benchmarks.yml'
+
+jobs:
+  pages:
+    name: 'build pages'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # Checkout repo
+      - uses: actions/checkout@v3
+
+      # Debug info to ensure workflow starts
+      - name: Debug Info
+        run: |
+          echo "Workflow started"
+          echo "Event name: ${{ github.event_name }}"
+          pwd
+          ls -la
+
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      # Install dependencies
+      - name: Install dependencies
+        run: yarn
+
+      # Build the project
+      - name: Build
+        run: yarn build
