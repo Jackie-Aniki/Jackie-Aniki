@@ -5,22 +5,16 @@ on:
   workflow_dispatch:
   # Automatic run on push
   push:
-    branches: [master]
-    paths:
-      - 'src/**'
-      - '.github/workflows/benchmarks.yml'
-
   # Automatic run on pull request
   pull_request:
-    branches: [master]
+    branches: [main]
     paths:
       - 'src/**'
-      - '.github/workflows/benchmarks.yml'
+      - '.github/workflows/pages.yml'
 
 jobs:
   pages:
-    name: 'build pages'
-    runs-on: ubuntu-latest
+    name: pages
     timeout-minutes: 5
     steps:
       # Checkout repo
