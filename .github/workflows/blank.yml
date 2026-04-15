@@ -1,6 +1,4 @@
-name: check2d-benchmarks
-
-on:
+name: pages
   # Manual run
   workflow_dispatch:
   # Automatic run on push
@@ -10,7 +8,7 @@ on:
     branches: [main]
     paths:
       - 'src/**'
-      - '.github/workflows/pages.yml'
+      - '.github/workflows/blank.yml'
 
 jobs:
   pages:
